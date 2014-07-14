@@ -1,0 +1,10 @@
+---
+layout: post
+title: templet of post
+---
+
+h1. {{ page.title }}
+
+p(meta). 14 Jul 2014 - shenzhen
+
+ÊäÈëºº×Ö²âÊÔ!
