@@ -7,7 +7,7 @@ h1. {{ page.title }}
 
 p(meta). 28 Sep 2014 - shenzhen
 
-h2. 1.读取android节点信息:
+1.读取android节点信息:
 {% highlight java %}
 /**
 *   read system node in android
@@ -35,26 +35,36 @@ public void readNodeInfo(String node){
 2.执行shell命令并读取执行结果:
 {% highlight java %}
 /**
-*   read system node in android
-*   @param String node: which node we want to read.
-*   @return null: just print the node info.
+*
+*   execute command in android application
+*   @param: String command: which command we want to exec.
+*   @reutrn: null
+*
 */
-public void readNodeInfo(String node){
-	String result = "";
-	try{
-		FileReader mFileReader = new FileReader(node);
-		BufferedReader mBufferedReader = new BufferedReader(mFileReader, 1024);
-		result = mBufferedReader.readLine(); // for single line
-		// for multi-line
-		/*
-		String temp = "";
-		while((temp = mBufferedReader.readLine()) != null){
-			result += (temp + "\n");
-		}
-		/*/
-	}catch(IOException e){
-		e.printStackTrace();
-	}
-	Log.d("quinn", "node info is : " + result);
+public void execCommand(String commandStr){
+    try{
+        Process mProcess = Runtime.getRuntime().exec("sh"); // or Runtime.getRuntime().exec("su"); if root needed.
+        DataOutputStream mDataOutputStream = new DataOutputStream(mProcess.getOutputStream());
+        mDataOutputStream.write(commandStr.getBytes());
+        mDataOutputStream.flush();
+        // if commandStr is simple command, like echo .. we just close mDataOutputStream here:
+        mDataOutputStream.close();
+        // if commandStr is complicated command, like logcat .. we need use while loop to read:
+        BufferedReader in = new BufferedReader(new InputStreamReader(mProcess.getInputStream()));
+        BufferedReader err = new BufferedReader(new InputStreamReader(mProcess.getErrorStream()));
+        String inStr = "", errStr = "";
+        Log.d("quinn", "normal log:");
+        while((inStr = in.readLine()) != null){
+            Log.d("quinn", inStr);            
+        }
+        Log.d("quinn", "err log:");
+        while((errStr = err.readLine()) != null){
+            Log.d("quinn", errStr);
+        }
+        // close resources here
+        in.close();
+        err.close();
+    }
+    
 }
 {% endhighlight %}
