@@ -7,4 +7,31 @@ h1. {{ page.title }}
 
 p(meta). 28 Sep 2014 - shenzhen
 
-<script src="https://gist.github.com/Quxianshan/9b3c618ced359e76810f.js"></script>
+h2. 读取android节点信息
+{% highlight java %}
+/**
+*
+*   read system node in android
+*   @param String node: which node we want to read.
+*   @return null: just print the node info.
+*
+*/
+public void readNodeInfo(String node){
+	String result = "";
+	try{
+		FileReader mFileReader = new FileReader(node);
+		BufferedReader mBufferedReader = new BufferedReader(mFileReader, 1024);
+		result = mBufferedReader.readLine(); // for single line
+		// for multi-line
+		/*
+		String temp = "";
+		while((temp = mBufferedReader.readLine()) != null){
+			result += (temp + "\n");
+		}
+		*/
+	}catch(IOException e){
+		e.printStackTrace();
+	}
+	Log.d("quinn", "node info is : " + result);
+}
+{% endhighlight %}
