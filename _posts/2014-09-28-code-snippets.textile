@@ -31,7 +31,8 @@ public void readNodeInfo(String node){
 {% highlight java %}
 public void execCommand(String commandStr){
     try{
-        Process mProcess = Runtime.getRuntime().exec("sh"); // or Runtime.getRuntime().exec("su"); if root needed.
+        Process mProcess = Runtime.getRuntime().exec("sh"); 
+	// or Runtime.getRuntime().exec("su"); if root needed.
         DataOutputStream mDataOutputStream = new DataOutputStream(mProcess.getOutputStream());
         mDataOutputStream.write(commandStr.getBytes());
         mDataOutputStream.flush();
@@ -53,6 +54,5 @@ public void execCommand(String commandStr){
         in.close();
         err.close();
     }
-    
 }
 {% endhighlight %}
