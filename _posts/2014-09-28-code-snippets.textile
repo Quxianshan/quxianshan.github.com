@@ -34,10 +34,10 @@ public void readNodeInfo(String node){
 
 code. 2.执行shell命令并读取执行结果:
 /**
-*   read system node in android
-*   @param String node: which node we want to read.
-*   @return null: just print the node info.
-*/
+/*   read system node in android
+/*   @param String node: which node we want to read.
+/*   @return null: just print the node info.
+/*/
 public void readNodeInfo(String node){
 	String result = "";
 	try{
@@ -50,7 +50,7 @@ public void readNodeInfo(String node){
 		while((temp = mBufferedReader.readLine()) != null){
 			result += (temp + "\n");
 		}
-		*/
+		/*/
 	}catch(IOException e){
 		e.printStackTrace();
 	}
