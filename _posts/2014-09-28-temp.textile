@@ -6,8 +6,8 @@ title: code snippets
 h1. {{ page.title }}
 
 p(meta). 28 Sep 2014 - shenzhen
+1. HelloWorld 实例:
 {% highlight java %}
-我能输入中文么 
 public void main(String[] args){
   System.out.println("hello world!");
 }
