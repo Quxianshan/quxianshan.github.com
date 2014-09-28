@@ -13,13 +13,14 @@ public void readNodeInfo(String node){
 	String result = "";
 	try{
 		FileReader mFileReader = new FileReader(node);
-		BufferedReader mBufferedReader = new BufferedReader(mFileReader, 1024);
-		result = mBufferedReader.readLine(); // for single line
+		BufferedReader mBuffer = new BufferedReader(mFileReader, 1024);
+		result = mBuffer.readLine(); // for single line
 		// for multi-line
 		/*String temp = "";
-		while((temp = mBufferedReader.readLine()) != null){
+		while((temp = mBuffer.readLine()) != null){
 			result += (temp + "\n");
 		}*/
+		mBuffer.close();
 	}catch(IOException e){
 		e.printStackTrace();
 	}
@@ -33,26 +34,31 @@ public void execCommand(String commandStr){
     try{
         Process mProcess = Runtime.getRuntime().exec("sh"); 
 	// or Runtime.getRuntime().exec("su"); if root needed.
-        DataOutputStream mDataOutputStream = new DataOutputStream(mProcess.getOutputStream());
+	OutputStream out = mProcessgetOutputStream();
+        DataOutputStream mDataOutputStream = new DataOutputStream(out);
         mDataOutputStream.write(commandStr.getBytes());
         mDataOutputStream.flush();
-        // if commandStr is simple command, like echo .. we just close mDataOutputStream here:
+        // if commandStr is simple command:
+	// 	like echo .. we just close mDataOutputStream here:
         mDataOutputStream.close();
-        // if commandStr is complicated command, like logcat .. we need use while loop to read:
-        BufferedReader in = new BufferedReader(new InputStreamReader(mProcess.getInputStream()));
-        BufferedReader err = new BufferedReader(new InputStreamReader(mProcess.getErrorStream()));
+        // if commandStr is complicated command:
+	//	like logcat .. we need use while loop to read:
+	InputStream inStream = mProcess.getInputStream();
+        BufferedReader inBuffer = new BufferedReader(inStream);
+	InputStream errStream = mProcess.getErrorStrean();
+        BufferedReader errBuffer = new BufferedReader(errBuffer);
         String inStr = "", errStr = "";
         Log.d("quinn", "normal log:");
-        while((inStr = in.readLine()) != null){
+        while((inStr = inBuffer.readLine()) != null){
             Log.d("quinn", inStr);            
         }
         Log.d("quinn", "err log:");
-        while((errStr = err.readLine()) != null){
+        while((errStr = errBuffer.readLine()) != null){
             Log.d("quinn", errStr);
         }
         // close resources here
-        in.close();
-        err.close();
+        inBuffer.close();
+        errBuffer.close();
     }
 }
 {% endhighlight %}
