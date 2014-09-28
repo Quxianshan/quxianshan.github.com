@@ -9,11 +9,6 @@ p(meta). 28 Sep 2014 - shenzhen
 
 1.读取android节点信息:
 {% highlight java %}
-/**
-*   read system node in android
-*   @param String node: which node we want to read.
-*   @return null: just print the node info.
-*/
 public void readNodeInfo(String node){
 	String result = "";
 	try{
@@ -34,13 +29,6 @@ public void readNodeInfo(String node){
 
 2.执行shell命令并读取执行结果:
 {% highlight java %}
-/**
-*
-*   execute command in android application
-*   @param: String command: which command we want to exec.
-*   @reutrn: null
-*
-*/
 public void execCommand(String commandStr){
     try{
         Process mProcess = Runtime.getRuntime().exec("sh"); // or Runtime.getRuntime().exec("su"); if root needed.
