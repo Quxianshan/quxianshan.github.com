@@ -32,8 +32,7 @@ public void readNodeInfo(String node){
 }
 {% endhighlight %}
 
-code.title. 2.执行shell命令并读取执行结果:
-code.content. {% highlight java %}
+code. 2.执行shell命令并读取执行结果:
 /**
 *   read system node in android
 *   @param String node: which node we want to read.
@@ -57,4 +56,3 @@ public void readNodeInfo(String node){
 	}
 	Log.d("quinn", "node info is : " + result);
 }
-{% endhighlight %}
