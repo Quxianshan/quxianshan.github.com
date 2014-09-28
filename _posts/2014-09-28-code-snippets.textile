@@ -31,3 +31,30 @@ public void readNodeInfo(String node){
 	Log.d("quinn", "node info is : " + result);
 }
 {% endhighlight %}
+
+code.title. 2.执行shell命令并读取执行结果:
+code.content. {% highlight java %}
+/**
+*   read system node in android
+*   @param String node: which node we want to read.
+*   @return null: just print the node info.
+*/
+public void readNodeInfo(String node){
+	String result = "";
+	try{
+		FileReader mFileReader = new FileReader(node);
+		BufferedReader mBufferedReader = new BufferedReader(mFileReader, 1024);
+		result = mBufferedReader.readLine(); // for single line
+		// for multi-line
+		/*
+		String temp = "";
+		while((temp = mBufferedReader.readLine()) != null){
+			result += (temp + "\n");
+		}
+		*/
+	}catch(IOException e){
+		e.printStackTrace();
+	}
+	Log.d("quinn", "node info is : " + result);
+}
+{% endhighlight %}
