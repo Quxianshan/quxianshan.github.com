@@ -1,6 +1,6 @@
 ---
 layout: post
-title: templet of post
+title: code snippets
 ---
 
 h1. {{ page.title }}
