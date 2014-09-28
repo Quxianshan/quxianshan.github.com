@@ -1,0 +1,10 @@
+---
+layout: post
+title: code snippets
+---
+
+h1. {{ page.title }}
+
+p(meta). 28 Sep 2014 - shenzhen
+
+<script src="https://gist.github.com/Quxianshan/9b3c618ced359e76810f.js"></script>
