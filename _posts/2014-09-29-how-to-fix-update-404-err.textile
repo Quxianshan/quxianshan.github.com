@@ -1,0 +1,18 @@
+---
+layout: post
+title: templet of post
+---
+
+h1. {{ page.title }}
+
+p(meta). 29 Sep 2014 - shenzhen
+
+run following command:
+
+sudo sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+
+grep -E 'archive.ubuntu.com|security.ubuntu.com' /etc/apt/sources.list.d/*
+
+sudo apt-get update
+
+<a href="https://smyl.es/how-to-fix-ubuntudebian-apt-get-404-not-found-package-repository-errors-saucy-raring-quantal-oneiric-natty/"> >>details of this question <<</a>
