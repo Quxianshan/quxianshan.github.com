@@ -8,9 +8,10 @@ h1. {{ page.title }}
 p(meta). 29 Sep 2014 - shenzhen
 
 run following command:
-
-code. sudo sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+{% highlight shell %}
+sudo sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 grep -E 'archive.ubuntu.com|security.ubuntu.com' /etc/apt/sources.list.d/*
 sudo apt-get update
+{% endhighlight %}
 
 <a href="https://smyl.es/how-to-fix-ubuntudebian-apt-get-404-not-found-package-repository-errors-saucy-raring-quantal-oneiric-natty/">&nbsp;>>details of this question <<&nbsp;</a>
