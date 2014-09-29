@@ -1,17 +1,19 @@
 ---
 layout: post
-title: how to fix 404 err when exec apt-get update in ubuntu
+title: common errors
 ---
 
 h1. {{ page.title }}
 
 p(meta). 29 Sep 2014 - shenzhen
 
+h1. this post for some common errors and solutions:
+
+1.how to fix 404 err when exec apt-get update in ubuntu
 run following command:
 {% highlight Bash %}
 sudo sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 grep -E 'archive.ubuntu.com|security.ubuntu.com' /etc/apt/sources.list.d/*
 sudo apt-get update
 {% endhighlight %}
-
 <a href="https://smyl.es/how-to-fix-ubuntudebian-apt-get-404-not-found-package-repository-errors-saucy-raring-quantal-oneiric-natty/">&nbsp;>>details of this question <<&nbsp;</a>
