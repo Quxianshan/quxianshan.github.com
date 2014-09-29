@@ -60,7 +60,7 @@ public void execCommand(String commandStr){
         inBuffer.close();
         errBuffer.close();
     }catch(IOException e){
-		Log.d(TAG, "some err hanppends:" + e.toString());
-	}
+	Log.d(TAG, "some err hanppends:" + e.toString());
+    }
 }
 {% endhighlight %}
