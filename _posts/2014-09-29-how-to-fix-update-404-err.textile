@@ -8,7 +8,7 @@ h1. {{ page.title }}
 p(meta). 29 Sep 2014 - shenzhen
 
 run following command:
-{% highlight shell %}
+{% highlight Bash %}
 sudo sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 grep -E 'archive.ubuntu.com|security.ubuntu.com' /etc/apt/sources.list.d/*
 sudo apt-get update
