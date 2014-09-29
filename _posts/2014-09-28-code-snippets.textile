@@ -12,14 +12,14 @@ p(meta). 28 Sep 2014 - shenzhen
 public void readNodeInfo(String node){
 	String result = "";
 	try{
-		FileReader mFileReader = new FileReader(node);
-		BufferedReader mBuffer = new BufferedReader(mFileReader, 1024);
+		FileReader mReader = new FileReader(node);
+		BufferedReader mBuffer = new BufferedReader(mReader, 1024);
 		result = mBuffer.readLine(); // for single line
 		// for multi-line
-		/*String temp = "";
-		while((temp = mBuffer.readLine()) != null){
-			result += (temp + "\n");
-		}*/
+		//String temp = "";
+		//while((temp = mBuffer.readLine()) != null){
+		//	result += (temp + "\n");
+		//}
 		mBuffer.close();
 	}catch(IOException e){
 		e.printStackTrace();
@@ -59,6 +59,8 @@ public void execCommand(String commandStr){
         // close resources here
         inBuffer.close();
         errBuffer.close();
-    }
+    }catch(IOException e){
+		Log.d(TAG, "some err hanppends:" + e.toString());
+	}
 }
 {% endhighlight %}
