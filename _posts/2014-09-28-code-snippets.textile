@@ -46,7 +46,7 @@ public void execCommand(String commandStr){
 	InputStreamReader inStream = new InputStreamReader(mProcess.getInputStream());
         BufferedReader inBuffer = new BufferedReader(inStream);
 	InputStreamReader errStream = new InputStreamReader(mProcess.getErrorStream());
-        BufferedReader errBuffer = new BufferedReader(errBuffer);
+        BufferedReader errBuffer = new BufferedReader(errStream);
         String inStr = "", errStr = "";
         Log.d("quinn", "normal log:");
         while((inStr = inBuffer.readLine()) != null){
