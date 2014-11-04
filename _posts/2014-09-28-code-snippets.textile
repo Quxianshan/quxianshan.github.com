@@ -64,3 +64,10 @@ public void execCommand(String commandStr){
     }
 }
 {% endhighlight %}
+
+3.android 执行shell命令截图:
+{% highlight java %}
+1> screencap /mnt/sdcard/screenshot.png
+2> cat /dev/graphics/fb0 > /mnt/sdcard/screenshot.raw
+   ffmpeg -vcodec rawvideo -f rawvideo -pix_fmt rgb32 -s 800x480 -i screenshot.raw -f image2 -vcodec png screenshot.png
+{% endhighlight %}
