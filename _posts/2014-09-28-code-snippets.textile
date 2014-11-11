@@ -77,8 +77,7 @@ public void execCommand(String commandStr){
 #include <stdio.h>
 #include <stdlib.h>
 #include <android_runtime/AndroidRuntime.h>
-
-#include <jni.h?
+#include <jni.h>
 #include <JNIHelp.h>
 namespace android {
 	static const char *classPathName = "class_path_name";
