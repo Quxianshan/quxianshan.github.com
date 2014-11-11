@@ -75,12 +75,14 @@ public void execCommand(String commandStr){
 screencap /mnt/sdcard/screenshot.png
 ```
 或者执行
+
 ```bash
 cat /dev/graphics/fb0 > /mnt/sdcard/screenshot.raw
 ffmpeg -vcodec rawvideo -f rawvideo -pix_fmt rgb32 -s 800x480 -i screenshot.raw -f image2 -vcodec png screenshot.png
 ```
 
 ## jni模板
+
 ```cpp
 #include <stdio.h>
 #include <stdlib.h>
