@@ -7,16 +7,16 @@ kramdown:
 
 # 作者信息
 author: 
-  name: 闫肃
-  email: suyan0830@gmail.com
-  link: http://yansu.org
-  weibo: http://weibo.com/yansu0711
-  github: http://github.com/suyan
+  name: 瞿贤山
+  email: qu.xianshan@live.com
+  link: http://quxianshan.github.io/
+  weibo: http://http://quxianshan.github.io/
+  github: http://github.com/quxianshan
 
 # 站点信息
-title: 闫肃的博客 
-description: 闫肃的博客
-url: http://yansu.org
+title: 瞿贤山的博客 
+description: 瞿贤山的博客
+url: http://quxianshan.github.io/
 rss_url: /pages/atom.xml
 
 # gavatar头像及Favicon
@@ -26,19 +26,17 @@ favicon: http://yansu-uploads.stor.sinaapp.com/imgs/favicon.ico
 # google analytics 设置
 ga:
   id: UA-54767140-1
-  url: yansu.org
+  url: quxianshan.github.io
 
 # disqus 设置
 disqus:
-  shortname: suyan-zh
+  shortname: quxianshan-zh
 
 # 主题设置，自动激活某个标签
 active: 技术
 
 # 首页除了最新文章外显示分类
 cates: 
-  - Python
-  - OpenStack
 
 # 中文本地化
 locals:
