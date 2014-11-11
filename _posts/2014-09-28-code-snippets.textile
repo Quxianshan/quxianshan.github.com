@@ -78,8 +78,8 @@ public void execCommand(String commandStr){
 #include <stdlib.h>
 #include <android_runtime/AndroidRuntime.h>
 
-#include "jni.h"
-#include "JNIHelp.h"
+#include <jni.h?
+#include <JNIHelp.h>
 namespace android {
 	static const char *classPathName = "class_path_name";
 	
@@ -87,9 +87,8 @@ namespace android {
         {"java native function", "return type", cpp native function},
 	};
 
-	/*
-	*  the code below stays the same
-	*/
+	//  the code below stays the same
+
 	extern "C" int registerNativeMethods (JNIEnv* env, const char* className, JNINativeMethod* gMethods, int numMethods) {
         jclass clazz;
         clazz = env->FindClass(className);
@@ -107,10 +106,9 @@ namespace android {
         return JNI_TRUE;
     
     }
-	/*
-    * Register native methods for all classes we know about.
-    * returns JNI_TURE on success
-    */
+
+	// Register native methods for all classes we know about.
+    // returns JNI_TURE on success
     extern "C" int registerNatives (JNIEnv* env) {
         if(!registerNativeMethods(env, classPathName, methods, sizeof(methods) / sizeof(methods[0]))) {
             return JNI_FALSE;
@@ -119,9 +117,7 @@ namespace android {
         return JNI_TRUE;
     }
 
-	/*
-    * this is called by the VM when the shared library is first loaded.
-    */
+    // this is called by the VM when the shared library is first loaded.
     typedef union {
         JNIEnv* env;
         void* venv;
