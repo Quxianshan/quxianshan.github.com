@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 回退Mac上用Brew安装的PHP版本
+title: 常用代码片断
 category: 技术
 tags: [java, android]
 keywords: java, android, code
