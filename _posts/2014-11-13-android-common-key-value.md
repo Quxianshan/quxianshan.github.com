@@ -10,8 +10,8 @@ description:
 > Android 键盘键名和键值列表
 
 ##电话键
-<table width="50%">
-<tr><th width="40%">键名</th>		<th width="40%">描述</th>		<th width="20%">键值</th></tr>
+<table width="70%">
+<tr><th width="50%">键名</th>		<th width="30%">描述</th>		<th width="20%">键值</th></tr>
 <tr><td>KEYCODE_CALL</td>	<td>拨号键</td>	<td>5</td></tr>
 <tr><td>KEYCODE_ENDCALL</td>	<td>挂机键</td>	<td>6</td></tr>
 <tr><td>KEYCODE_HOME</td>	<td>按键 Home</td>	<td>3</td></tr>
@@ -29,8 +29,8 @@ description:
 </table>
 
 ##控制键
-<table>
-<tr><th>键名</th>		<th>描述</th>		<th>键值</th></tr>
+<table width="70%">
+<tr><th width="50%">键名</th>		<th width="30%">描述</th>		<th width="20%">键值</th></tr>
 <tr><td>KEYCODE_ENTER</td>	<td>回车键</td>	<td>66</td></tr>
 <tr><td>KEYCODE_ESCAPE</td>	<td>ESC 键</td>	<td>111</td></tr>
 <tr><td>KEYCODE_DPAD_CENTER</td>	<td>导航键确定键</td>	<td>23</td></tr>
@@ -55,8 +55,8 @@ description:
 </table>
 
 ##组合键
-<table>
-<tr><th>键名</th>		<th>描述</th></tr>
+<table width="70%">
+<tr><th width="70%">键名</th>		<th width="30%">描述</th></tr>
 <tr><td>KEYCODE_ALT_LEFT</td>	<td>Alt+Left</td></tr>
 <tr><td>KEYCODE_ALT_RIGHT</td>	<td>Alt+Right</td></tr>
 <tr><td>KEYCODE_CTRL_LEFT</td>	<td>Control+Left</td></tr>
@@ -66,8 +66,8 @@ description:
 </table>
 
 ##基本键
-<table>
-<tr><th>键名</th>		<th>描述</th>		<th>键值</th></tr>
+<table width="70%">
+<tr><th width="50%">键名</th>		<th width="30%">描述</th>		<th width="20%">键值</th></tr>
 <tr><td>KEYCODE_0</td>	<td>按键'0'</td>	<td>7</td></tr>
 <tr><td>KEYCODE_1</td>	<td>按键'1'</td>	<td>8</td></tr>
 <tr><td>KEYCODE_2</td>	<td>按键'2'</td>	<td>9</td></tr>
