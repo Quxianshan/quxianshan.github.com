@@ -11,7 +11,7 @@ description:
 
 ##电话键
 <table>
-<th><td>键名</td>		<td>描述</td>		<td>键值</td></th>
+<tr><th>键名</th>		<th>描述</th>		<th>键值</th></tr>
 <tr><td>KEYCODE_CALL</td>	<td>拨号键</td>	<td>5</td></tr>
 <tr><td>KEYCODE_ENDCALL</td>	<td>挂机键</td>	<td>6</td></tr>
 <tr><td>KEYCODE_HOME</td>	<td>按键 Home</td>	<td>3</td></tr>
