@@ -10,8 +10,8 @@ description:
 > Android 键盘键名和键值列表
 
 ##电话键
-<table>
-<tr><th>键名</th>		<th>描述</th>		<th>键值</th></tr>
+<table width="50%">
+<tr><th width="40%">键名</th>		<th width="40%">描述</th>		<th width="20%">键值</th></tr>
 <tr><td>KEYCODE_CALL</td>	<td>拨号键</td>	<td>5</td></tr>
 <tr><td>KEYCODE_ENDCALL</td>	<td>挂机键</td>	<td>6</td></tr>
 <tr><td>KEYCODE_HOME</td>	<td>按键 Home</td>	<td>3</td></tr>
