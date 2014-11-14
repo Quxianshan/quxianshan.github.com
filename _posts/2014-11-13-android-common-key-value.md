@@ -10,21 +10,23 @@ description:
 > Android 键盘键名和键值列表
 
 ##电话键
-键名		描述		键值
-KEYCODE_CALL	拨号键		5
-KEYCODE_ENDCALL 挂机键		6
-KEYCODE_HOME	按键 Home	3
-KEYCODE_MENU	菜单键		82
-KEYCODE_BACK	返回键		4
-KEYCODE_SEARCH	搜索键		84
-KEYCODE_CAMERA	拍照键		27
-KEYCODE_FOCUS	拍照对焦键	80
-KEYCODE_POWER	电源键		26
-KEYCODE_NOTIFICATION 通知键	83
-KEYCODE_MUTE	话筒静音键	91
-KEYCODE_VOLUME_MUTE 扬声器静音键164
-KEYCODE_VOLUME_UP 音量增加键	24
-KEYCODE_VOLUME_DOWN 音量减小键	25
+<table>
+<th><td>键名</td>		<td>描述</td>		<td>键值</td></th>
+<tr><td>KEYCODE_CALL</td>	<td>拨号键</td>	<td>5</td></tr>
+<tr><td>KEYCODE_ENDCALL</td>	<td>挂机键</td>	<td>6</td></tr>
+<tr><td>KEYCODE_HOME</td>	<td>按键 Home</td>	<td>3</td></tr>
+<tr><td>KEYCODE_MENU</td>	<td>菜单键</td>	<td>82</td></tr>
+<tr><td>KEYCODE_BACK</td>	<td>返回键</td>	<td>4</td></tr>
+<tr><td>KEYCODE_SEARCH</td>	<td>搜索键</td>	<td>84</td></tr>
+<tr><td>KEYCODE_CAMERA</td>	<td>拍照键</td>	<td>27</td></tr>
+<tr><td>KEYCODE_FOCUS</td>	<td>拍照对焦键</td>	<td>80</td></tr>
+<tr><td>KEYCODE_POWER</td>	<td>电源键</td>	<td>26</td></tr>
+<tr><td>KEYCODE_NOTIFICATION</td>	<td>通知键</td>	<td>83</td></tr>
+<tr><td>KEYCODE_MUTE</td>	<td>话筒静音键</td>	<td>91</td></tr>
+<tr><td>KEYCODE_VOLUME_MUTE</td>	<td>扬声器静音键</td>	<td>164</td></tr>
+<tr><td>KEYCODE_VOLUME_UP</td>	<td>音量增加键</td>	<td>24</td></tr>
+<tr><td>KEYCODE_VOLUME_DOWN</td>	<td>音量减小键</td>	<td>25</td></tr>
+</table>
 
 ##控制键
 键名		描述		键值
