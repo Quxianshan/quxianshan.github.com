@@ -1,13 +1,13 @@
 ---
 layout: post
-title: adb shell command
+title: 常用adb shell命令
 category: 技术
 tags: [keycode, android]
 keywords: keycode, android
 description: 
 ---
 
-> adb shell command
+> 常用adb shell命令
 
 ##拨打电话
 ```bash
