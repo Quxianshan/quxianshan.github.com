@@ -1,24 +1,27 @@
 ---
 layout: post
 title: google hosts
-category: ¼¼Êõ
+category: æŠ€æœ¯
 tags: [google hosts]
 keywords: google hosts
 description: 
 ---
-> ´ËÎÄÕÂÓÃÓÚ¸üĞÂgoogle hosts, ·ÀÖ¹google±»Ç½, µ¼ÖÂÎŞ·¨´ò¿ªgoogleËÑË÷µÈÓ¦ÓÃ.
+> æ­¤æ–‡ç« ç”¨äºæ›´æ–°google hosts, é˜²æ­¢googleè¢«å¢™, å¯¼è‡´æ— æ³•æ‰“å¼€googleæœç´¢ç­‰åº”ç”¨.
 
-##Ê¹ÓÃ·½·¨
-windows ÏÂ:
-	hostsÎÄ¼şÂ·¾¶: C:\Windows\System32\drivers\etc\hosts
-linux ÏÂ:
-	hostsÎÄ¼şÂ·¾¶: /etc/hosts
+##ä½¿ç”¨æ–¹æ³•
+windows ä¸‹:
 
-##¸üĞÂÈÕÆÚ
-¸üĞÂÓÚ 2014/11/18 15:25:01
+	hostsæ–‡ä»¶è·¯å¾„: C:\Windows\System32\drivers\etc\hosts
+	
+linux ä¸‹:
+
+	hostsæ–‡ä»¶è·¯å¾„: /etc/hosts
+
+##æ›´æ–°æ—¥æœŸ
+æ›´æ–°äº 2014/11/18 15:25:01
 
 ##google hosts
-½«ÒÔÏÂÄÚÈİ×·¼Óµ½hostsÎÄ¼şµ±ÖĞ.
+å°†ä»¥ä¸‹å†…å®¹è¿½åŠ åˆ°hostsæ–‡ä»¶å½“ä¸­.
 ```bash
 #Mail clients may not work for following hosts
 202.65.246.80	gmail-pop.l.google.com
