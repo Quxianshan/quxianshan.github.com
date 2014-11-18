@@ -1,6 +1,6 @@
 ---
 layout: post
-title: google hosts
+title: 更新 google host
 category: 技术
 tags: [google hosts]
 keywords: google hosts
@@ -22,6 +22,7 @@ linux 下:
 
 ##google hosts
 将以下内容追加到hosts文件当中.
+
 ```bash
 #Mail clients may not work for following hosts
 202.65.246.80	gmail-pop.l.google.com
