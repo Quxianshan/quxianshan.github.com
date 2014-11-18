@@ -22,6 +22,7 @@ linux 下:
 
 ##google hosts
 将以下内容追加到hosts文件当中.
+
 ```bash
 链接: http://pan.baidu.com/s/1qW7F0Lm 密码: logb
 ```
