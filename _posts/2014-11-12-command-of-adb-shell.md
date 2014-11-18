@@ -1,35 +1,36 @@
 ---
 layout: post
-title: ³£ÓÃadb shell ÃüÁî
-category: ¼¼Êõ
-tags: [adb shell, android]
-keywords: adb shell, android
+title: adb shell command
+category: æŠ€æœ¯
+tags: [keycode, android]
+keywords: keycode, android
 description: 
 ---
-> ´ËÎÄÕÂÓÃÓÚ¼ÇÂ¼³£ÓÃµÄadb shellÃüÁî
 
-##²¦´òµç»°
+> adb shell command
+
+##æ‹¨æ‰“ç”µè¯
 ```bash
 adb shell service call phone 2 s16 "10086"
 adb shell am start -a android.intent.action.CALL -d tel:10086
 ```
 
-##´ò¿ªÍøÒ³
+##æ‰“å¼€ç½‘é¡µ
 ```bash
 am start -a android.intent.action.VIEW -d http://localhost
 ```
 
-##Æô¶¯ÒÑ°²×°µÄÓ¦ÓÃ
+##å¯åŠ¨å·²å®‰è£…çš„åº”ç”¨
 ```bash
 am start -n package_name/.class_name
 ```
 
-##·¢ËÍ¼üÖµ(Ä£ÄâÓÃ»§°´¼ü²Ù×÷)
+##å‘é€é”®å€¼(æ¨¡æ‹Ÿç”¨æˆ·æŒ‰é”®æ“ä½œ)
 ```bash
-adb shell input keyevent ¼üÖµ
+adb shell input keyevent é”®å€¼
 ```
 
-##Ä£ÄâÓÃ»§µã»÷²Ù×÷
+##æ¨¡æ‹Ÿç”¨æˆ·ç‚¹å‡»æ“ä½œ
 ```bash
-adb shell input tap x×ø±ê y×ø±ê
+adb shell input tap xåæ ‡ yåæ ‡
 ```
