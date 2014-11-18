@@ -156,9 +156,3 @@ namespace android {
     }
 }
 ```
-
-## adb shell 模拟点击操作
-```shell
-adb shell input keyevent 键值
-adb shell input tap x坐标 y坐标
-```
