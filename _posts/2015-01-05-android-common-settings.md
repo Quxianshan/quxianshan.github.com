@@ -44,3 +44,37 @@ android/frameworks/base/core/res/res/values/config.xml
     <item>"wifi_p2p,13,1,0,-1,true"</item>
 </string-array>
 ```
+以上是网络类型的基本配置，那如何应用这些配置呢？首先需要让这些配置生效，详见文件：    
+frameworks/base/packages/SettingsProvider/src/com/android/providers/settings/DatabaseHelper.java
+
+```java
+private void loadGlobalSettings(SQLiteDatabase db) {
+    ...
+    loadIntegerSetting(stmt, Settings.Global.NETWORK_PREFERENCE,
+        R.integer.def_network_preference);
+    ...
+```
+DatabaseHelper会将定义的值写到数据库当中。在ConnectivityService.java中读取并设置网络模式:    
+frameworks/base/services/java/com/android/server/ConnectivityService.java
+
+```java
+public ConnectivityService(Context context, INetworkManagementService netManager,
+    INetworkStatsService statsService, INetworkPolicyManager policyManager,
+    NetworkFactory netFactory) {
+    ...
+    mNetworkPreference = getPersistedNetworkPreference();
+    ...
+}
+
+...
+
+private int getPersistedNetworkPreference() {
+    final ContentResolver cr = mContext.getContentResolver();
+    final int networkPrefSetting = Settings.Global
+        .getInt(cr, Settings.Global.NETWORK_PREFERENCE, -1);
+    if (networkPrefSetting != -1) {
+        return networkPrefSetting;
+    }
+    return ConnectivityManager.DEFAULT_NETWORK_PREFERENCE;
+}
+```
