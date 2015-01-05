@@ -42,4 +42,5 @@ android/frameworks/base/core/res/res/values/config.xml
     <item>"mobile_ims,11,0,2,60000,true"</item>
     <item>"mobile_cbs,12,0,2,60000,true"</item>
     <item>"wifi_p2p,13,1,0,-1,true"</item>
+</string-array>
 ```
