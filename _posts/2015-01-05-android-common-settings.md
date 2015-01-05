@@ -11,13 +11,13 @@ description:
 
 ## 默认开启以太网设置
 文件路径：android/frameworks/base/packages/SettingsProvider/res/values/defaults.xml     
-```xml
+```java
 <!--  0 == mobile, 1 == wifi. -->
 <integer name="def_network_preference">9</integer>
 ```     
 由xml文件中的注释可知，0代表默认的网络类型为移动数据，1代表默认的网络类型为wifi，以太网的定义为9。详细的定义配置参见：     
 android/frameworks/base/core/res/res/values/config.xml     
-```xml
+```java
 <!-- XXXXX NOTE THE FOLLOWING RESOURCES USE THE WRONG NAMING CONVENTION.
     Please don't copy them, copy anything else. -->
 <!-- This string array should be overridden by the device to present a list of network
