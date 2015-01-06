@@ -25,11 +25,11 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_JAVA_LIBRARIES)
 include $(BUILD_JAVA_LIBRARY)
 ```
 配置项说明：    
-LOCAL_PATH ---- 表示当前Android.mk文件所在的路径
-include $(CLEAR_VARS) ----  清空source\build\core\config.mk中定义的变量值(不包括LOCAL_PATH)
-LOCAL_SRC_FILES ---- 表示需要将哪个目录下的文件编译进jar文件当中
-LOCAL_JAVA_LIBRARIES ---- 依赖的本地java 库
-LOCAL_MODULE ---- 编译出的jar包名称
+LOCAL_PATH ---- 表示当前Android.mk文件所在的路径    
+include $(CLEAR_VARS) ----  清空source\build\core\config.mk中定义的变量值(不包括LOCAL_PATH)    
+LOCAL_SRC_FILES ---- 表示需要将哪个目录下的文件编译进jar文件当中     
+LOCAL_JAVA_LIBRARIES ---- 依赖的本地java 库     
+LOCAL_MODULE ---- 编译出的jar包名称     
 LOCAL_MODULE_TAGS ---- 编译选项：user eng tests optional    
   user 表示模块仅在user版本下编译 eng 表示模块仅在eng版本下编译 tests表示仅在tests版本下编译 optional 则所有版本都编译    
 配置完成后，手动mm即可在out目录下生成对应LOCAL_MODULE配置的jar文件。
