@@ -42,3 +42,17 @@ In short NoClassDefFoundError will come if a class was present during compile ti
 ```bash
 export BOOTCLASSPATH ...:/system/framework/jar_name.jar
 ```
+
+###编译eclipse导出的第三方jar包
+在android sdk中引用第三方的jar包时，需按照如下配置Android.mk：    
+
+```bash
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES := new_name:libs/source_jar.jar
+include $(BUILD_MULTI_PREBUILT)
+```
+说明：    
+LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES 定义要编译jar模块的名称以及原始jar包所在的路径(相对于Android.mk文件的位置)    
+
+在apk的Android.mk文件中， 在LOCAL_STATIC_JAVA_LIBRARIES 后添加new_name即可编译运行。
