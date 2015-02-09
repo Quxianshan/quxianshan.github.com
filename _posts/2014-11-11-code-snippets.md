@@ -156,3 +156,33 @@ namespace android {
     }
 }
 ```
+
+## android计算场景声音
+
+```java
+static final int SAMPLE_RATE_IN_HZ = 8000;
+final int BUFFER_SIZE = AudioRecord.getMinBufferSize(SAMPLE_RATE_IN_HZ,
+	AudioFormat.CHANNEL_IN_DEFAULT, AudioFormat.ENCODING_PCM_16BIT) * 10;
+private AudioRecord mAudioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
+	SAMPLE_RATE_IN_HZ, AudioFormat.CHANNEL_IN_DEFAULT,
+	AudioFormat.ENCODING_PCM_16BIT, BUFFER_SIZE);
+short[] buffer = new short[BUFFER_SIZE]; // data buffer read from AudioRecord
+int length = 0; // data length
+long values = 0L; // data value
+if (mAudioRecord == null) {
+	throw new RuntimeException("init AudioRecord failed");
+}
+mAudioRecord.startRecording();
+while (true) {
+	values = 0L;
+	length = mAudioRecord.read(buffer, 0, BUFFER_SIZE);
+	if (length != 0) {
+		for (int i = 0; i < buffer.length; i+=2) {
+			values += ((buffer[i] | (buffer[i+1] << 8)) / length);
+		}
+		double mean =1.0d * values * values;
+		double volume = 10 * Math.log10(mean / 32767 / 32767);
+		// volume is current db.
+	}
+}
+```
