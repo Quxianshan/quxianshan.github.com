@@ -186,3 +186,18 @@ while (true) {
 	}
 }
 ```
+
+##android 通过反射添加外部应用资源
+
+```java
+public static final String CLAZZ_DRAWABLE 	= "third_part_app_package_name.R$drawable";
+public static final String CLAZZ_RAW 		= "third_part_app_package_name.R$raw";
+try {
+	Field imgField = Class.forName(CLAZZ_DRAWABLE).getField("图片资源名，如ic_launcher");
+	int imageResId = imgFiled.getInt(imgField)); // 图片资源resId
+	Filed rawField = Class.forName(CLAZZ_RAW).getField("资源名");
+	int rawResId = rawField.getInt(rawField)); // raw 资源Id
+} catch (Exception e) {
+	Log.e(TAG, "some error happens when expression update : " + e.toString());
+}
+```
