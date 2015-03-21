@@ -9,7 +9,7 @@ description:
 
 >介绍在android sdk中编译jar文件的方法
 
-###直接编译源码生成jar文件
+## 直接编译源码生成jar文件
 在进行系统定制时，可能会将自己定义的类与接口封装到一起作为公共部分供其他apk调用，因此需要将这类文件打包编译成jar文件。    
 其中，Android.mk文件配置如下：    
 
@@ -43,7 +43,7 @@ In short NoClassDefFoundError will come if a class was present during compile ti
 export BOOTCLASSPATH ...:/system/framework/jar_name.jar
 ```
 
-###编译eclipse导出的第三方jar包
+## 编译eclipse导出的第三方jar包
 在android sdk中引用第三方的jar包时，需按照如下配置Android.mk：    
 
 ```bash
