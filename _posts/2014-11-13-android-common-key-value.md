@@ -10,6 +10,7 @@ description:
 > Android 键盘键名和键值列表
 
 ##电话键
+
 <table width="70%">
 <tr><th width="50%">键名</th>		<th width="30%">描述</th>		<th width="20%">键值</th></tr>
 <tr><td>KEYCODE_CALL</td>	<td>拨号键</td>	<td>5</td></tr>
@@ -29,6 +30,7 @@ description:
 </table>
 
 ##控制键
+
 <table width="70%">
 <tr><th width="50%">键名</th>		<th width="30%">描述</th>		<th width="20%">键值</th></tr>
 <tr><td>KEYCODE_ENTER</td>	<td>回车键</td>	<td>66</td></tr>
@@ -55,6 +57,7 @@ description:
 </table>
 
 ##组合键
+
 <table width="70%">
 <tr><th width="70%">键名</th>		<th width="30%">描述</th></tr>
 <tr><td>KEYCODE_ALT_LEFT</td>	<td>Alt+Left</td></tr>
@@ -66,6 +69,7 @@ description:
 </table>
 
 ##基本键
+
 <table width="70%">
 <tr><th width="50%">键名</th>		<th width="30%">描述</th>		<th width="20%">键值</th></tr>
 <tr><td>KEYCODE_0</td>	<td>按键'0'</td>	<td>7</td></tr>
@@ -107,6 +111,7 @@ description:
 </table>
 
 ##KeyEvent.java对Key code的定义
+
 ```java
 /** Key code constant: Unknown key code. */
 public static final int KEYCODE_UNKNOWN = 0;
