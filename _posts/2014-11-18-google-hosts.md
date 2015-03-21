@@ -9,6 +9,7 @@ description:
 > 此文章用于更新google hosts, 防止google被墙, 导致无法打开google搜索等应用.
 
 ##使用方法
+
 windows 下:
 
 	hosts文件路径: C:\Windows\System32\drivers\etc\hosts
@@ -18,9 +19,11 @@ linux 下:
 	hosts文件路径: /etc/hosts
 
 ##更新日期
+
 更新于 2014/11/18 15:25:01
 
 ##google hosts
+
 将以下内容追加到hosts文件当中.
 
 ```bash
