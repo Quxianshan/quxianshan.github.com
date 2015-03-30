@@ -43,6 +43,18 @@ In short NoClassDefFoundError will come if a class was present during compile ti
 export BOOTCLASSPATH ...:/system/framework/jar_name.jar
 ```
 
+-----------
+更新
+-----------
+在Android4.4平台，将自定义的jar包添加到BOOTCLASSPATH中的方法在
+
+```bash
+source_path/build/target/product/core_minimal.mk
+source_path/build/target/product/core_base.mk
+```
+
+文件中，PRODUCT_BOOT_JARS字段定义了BOOTCLASSPATH的值，编译完成后会将值写入到init.environ.rc中。
+
 ## 编译eclipse导出的第三方jar包
 在android sdk中引用第三方的jar包时，需按照如下配置Android.mk：    
 
