@@ -12,8 +12,8 @@ description:
 ## 新建仓库
 
 ```bash
-git init
-git --bare init
+本地仓库：git init
+远端仓库：git --bare init
 ```
 
 ## 设置远程仓库
