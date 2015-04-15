@@ -19,7 +19,7 @@ git --bare init
 ## 设置远程仓库
 
 ```bash
-git add remote origin ssh://username@hostname:/git_path.git
+git remote add origin ssh://username@hostname:/git_path.git
 ```
 
 ## 提交代码到远程仓库
