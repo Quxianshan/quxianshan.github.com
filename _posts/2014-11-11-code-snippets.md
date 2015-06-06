@@ -201,3 +201,10 @@ try {
 	Log.e(TAG, "some error happens when expression update : " + e.toString());
 }
 ```
+
+## vim cscope 数据库生成
+
+```shell
+find . -iname "*.java" -o -iname "*.aidl" -o -iname "*.cpp" -o -iname "*.c" -o -iname "*.h" > cscope.files
+cscope -Rbq
+```
