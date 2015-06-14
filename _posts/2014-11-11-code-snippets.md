@@ -208,3 +208,17 @@ try {
 find . -iname "*.java" -o -iname "*.aidl" -o -iname "*.cpp" -o -iname "*.c" -o -iname "*.h" > cscope.files
 cscope -Rbq
 ```
+
+## android 4.4 全屏模式设置
+
+将如下代码写在onCreate()的setContentView()之前.
+
+```java
+View decorView = getWindow().getDecorView();
+decorView.setSystemUiVisibility( View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+	| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+	| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+	| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+	| View.SYSTEM_UI_FLAG_FULLSCREEN
+	| View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+```
