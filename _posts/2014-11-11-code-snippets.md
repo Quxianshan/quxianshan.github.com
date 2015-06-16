@@ -9,6 +9,12 @@ description:
 
 > 此文章用于记录遇到的一些常用的代码片断, 方便后续重复使用
 
+## vim 里替换^M符号
+
+```shell
+:%s/^M//g (注意命令中的^M需要用CTRL+V、CTRL+M的方式输入)
+```
+
 ## 读取android节点信息
 
 ```java
