@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 常用代码片断
+title: Camera预览数据转换成JPEG
 category: 技术
 tags: [java, android]
 keywords: java, android, code
