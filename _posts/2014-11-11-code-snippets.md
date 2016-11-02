@@ -9,212 +9,30 @@ description:
 
 > 此文章用于记录遇到的一些常用的代码片断, 方便后续重复使用
 
-## android 文件浏览器列表
-
+## android 获取ip地址和mac地址
 ```java
-package xiongqi.venom;
+// mac adress
+WifiInfo info = ((WifiManager) context.getSystemService(Context.WIFI_SERVICE)).getConnectionInfo();
+String macAddress = info != null ? info.getMacAddress() : "unknown";
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Environment;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ListViewCompat;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.orhanobut.logger.Logger;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Stack;
-
-import rx.Observable;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
-
-/**
- * Created by quinn on 16-8-25.
- */
-public class FileListActivity extends AppCompatActivity {
-
-
-    ListViewCompat fileListView = null;
-    private Stack<String> filePathStack = null;
-
-    private AdapterView.OnItemClickListener fileListItemClickListener = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            File clickFile = (File) fileListView.getAdapter().getItem(position);
-            if  (clickFile.isDirectory()) {
-                loadFileListObservable(clickFile);
-            } else {
-                Intent fileSelectIntent = new Intent();
-                fileSelectIntent.putExtra("file_path", clickFile.getAbsolutePath());
-                setResult(RESULT_OK, fileSelectIntent);
-                finish();
-            }
-        }
-    };
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Logger.init(FileListActivity.class.getSimpleName());
-        Logger.d("fileListActivity on create");
-        setContentView(R.layout.activity_file_list);
-        initToolBar();
-        fileListView = (ListViewCompat) findViewById(R.id.file_list);
-        fileListView.setOnItemClickListener(fileListItemClickListener);
-        Logger.d("external storage state :%s, storage dir :%s", Environment.getExternalStorageState(), Environment.getExternalStorageDirectory());
-        filePathStack = new Stack<String>();
-        loadFileListObservable(Environment.getExternalStorageDirectory());
-    }
-
-    void initToolBar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.file_list_toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle(null);
-        toolbar.findViewById(R.id.file_list_toolbar_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Logger.d("user click back navigation button, current position: %s", filePathStack.peek());
-                if (!filePathStack.peek().equals(Environment.getExternalStorageDirectory().getAbsolutePath())) {
-                    loadFileListObservable(new File(filePathStack.pop()).getParentFile());
-                } else {
-                    setResult(RESULT_CANCELED);
-                    finish();
-                }
-            }
-        });
-    }
-
-    void loadFileListObservable(final File file) {
-        Observable<File> observable = Observable.just(file);
-        observable.subscribeOn(Schedulers.io())
-                .map(new Func1<File, File[]>() {
-                    @Override
-                    public File[] call(File file) {
-                        return file.listFiles();
-                    }
-                })
-                .filter(new Func1<File[], Boolean>() {
-                    @Override
-                    public Boolean call(File[] files) {
-                        return files != null;
-                    }
-                })
-                .map(new Func1<File[], File[]>() {
-                    @Override
-                    public File[] call(File[] files) {
-                        ArrayList<File> fileArrayList = new ArrayList<File>();
-                        for (File temp : files) {
-                            if (!temp.isHidden()) {
-                                fileArrayList.add(temp);
-                            }
-                        }
-                        return fileArrayList.toArray(new File[fileArrayList.size()]);
-                    }
-                })
-                .flatMap(new Func1<File[], Observable<FileAdapter>>() {
-                    @Override
-                    public Observable<FileAdapter> call(File[] files) {
-                        Logger.i("get files null ? %s ", files == null);
-                        Arrays.sort(files, COMPARATOR);
-                        return Observable.just(new FileAdapter(files));
-                    }
-                })
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<FileAdapter>() {
-                    @Override
-                    public void onCompleted() {}
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Logger.e(e, "get error when subscribe FileAdapter");
-                    }
-
-                    @Override
-                    public void onNext(FileAdapter kosyniFileAdapter) {
-                        filePathStack.push(file.getAbsolutePath());
-                        fileListView.setAdapter(kosyniFileAdapter);
-                    }
-                });
-    }
-
-    private final FileComparator COMPARATOR = new FileComparator();
-    private class FileComparator implements Comparator<File> {
-
-        @Override
-        public int compare(File lhs, File rhs) {
-            if ((lhs.isDirectory() && !rhs.isDirectory())
-                    || (!lhs.isDirectory() && rhs.isDirectory())) {
-                return lhs.isDirectory() ? -1 : 1;
-            } else if (lhs.isDirectory() && rhs.isDirectory()) {
-                return lhs.getName().compareTo(rhs.getName());
-            } else {
-                return lhs.getName().compareTo(rhs.getName());
-            }
-        }
-    }
-
-    private class FileAdapter extends BaseAdapter {
-
-        private File[] files = null;
-
-        public FileAdapter(File[] files) {
-            this.files = files;
-        }
-
-        @Override
-        public int getCount() {
-            return this.files.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return this.files[position];
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = LayoutInflater.from(FileListActivity.this);
-            ViewHolder viewHolder = null;
-            if (convertView == null) {
-                convertView = inflater.inflate(R.layout.item_activity_filelist_item, null);
-                viewHolder = new ViewHolder();
-            } else {
-                viewHolder = (ViewHolder) convertView.getTag(R.id.activity_filelist_file_title);
-            }
-
-            viewHolder.fileName = (TextView) convertView.findViewById(R.id.file_title);
-            viewHolder.isDir = (ImageView) convertView.findViewById(R.id.is_dir);
-            viewHolder.fileName.setText(this.files[position].getName());
-            viewHolder.isDir.setVisibility(this.files[position].isDirectory() ? View.VISIBLE : View.GONE);
-            convertView.setTag(R.id.activity_filelist_file_title, viewHolder);
-            return convertView;
-        }
-
-        private class ViewHolder {
-            public TextView fileName;
-            public ImageView isDir;
-        }
-    }
+// ip address
+String ipAddress = null;
+ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+LinkProperties prop = cm.getLinkProperties(ConnectivityManager.TYPE_WIFI);
+Iterator<InetAddress> iter = prop.getAllAddresses().iterator();
+if (!iter.hasNext()) ipAddress = "0.0.0.0";
+InetAddress netAddress;
+while(iter.hasNext()) {
+	netAddress = iter.next();
+	if(netAddress instanceof Inet4Address) {
+		// ipV4
+		address += net.getHostAddress();
+	}
+	if (netAddress instanceof Inet6Address) {
+		// ipV6
+		address += net.getHostAddress();
+	}
+	if (iter.hasNext()) address += "\n";
 }
 ```
 
