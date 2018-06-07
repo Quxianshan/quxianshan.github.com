@@ -60,7 +60,9 @@ java -jar smali.jar -o classes.dex out_dir/
 | if-gt | vA > vB |
 | if-le | vA <= vB |
 | if-ge | vA >= vB | 
+
 特殊形式，if-xx vA, :cond_**, 此时仅将vA与0比较，有如下情况：
+
 | 表达式 | 说明 | 
 | - | - | 
 | if-eqz | vA == 0 |
