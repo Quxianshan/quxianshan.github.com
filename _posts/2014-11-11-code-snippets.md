@@ -9,6 +9,24 @@ description:
 
 > 此文章用于记录遇到的一些常用的代码片断, 方便后续重复使用
 
+## android 判断应用是否处于前台显示
+```java
+public boolean isApplicationFirstRunning(String application) {
+	ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+	List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
+	if (appProcesses == null) {
+		return false;
+	}
+	for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
+		if (appProcess.processName.equals(application)
+			&& appProcess.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
+			return true;
+		}
+	}
+	return false;
+}
+```
+
 ## android 获取ip地址和mac地址
 ```java
 // mac adress
